@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CatList from './CatList';
 
 function App() {
-    const [zodiacSign, setZodiacSign] = useState('Aries'); // Default zodiac sign
+    const [zodiacSign, setZodiacSign] = useState(''); // Default zodiac sign
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100"> {/* Centering and background color */}
