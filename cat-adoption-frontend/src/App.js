@@ -1,26 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CatList from './CatList';
+import catImage from './assets/thugcat.png'; // Make sure to have your cat image in the correct location
+import './App.css';
 
 function App() {
     const [zodiacSign, setZodiacSign] = useState(''); // Default zodiac sign
+    const [position, setPosition] = useState({ top: 0, left: 0 });
+
+    useEffect(() => {
+        const moveCat = () => {
+            const newTop = Math.random() * 100; // Random top value within 100px
+            const newLeft = Math.random() * 100; // Random left value within 100px
+            setPosition({ top: newTop, left: newLeft });
+        };
+
+        const interval = setInterval(moveCat, 1000); // Change position every 1 second
+        return () => clearInterval(interval); // Clean up the interval on component unmount
+    }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100"> {/* Centering and background color */}
-        <div className='absolute top-1 bg-blue-500 text-white p-2 rounded hover:bg-green-600'> {/* Styled div */}
-            <h1 className="text-8xl font-bold mb-8">Right Meow Adoption</h1> {/* Title with Tailwind styles */}
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-amber-400 to-brown-900 relative overflow-hidden"> {/* Centering, background color, and relative positioning */}
+            <div className='absolute top-1 bg-blue-800 text-white p-2 rounded-lg hover:bg-violet-800 mt-5 box-border h-32'> {/* Styled div */}
+                <h1 className="text-8xl font-bold mb-8">Right Meow Adoption</h1> {/* Title with Tailwind styles */}
             </div>
-            <h2 className='text-3xl font-semibold m-4 mr-10 ml-10 text-left whitespace-break-spaces'>Right Meow is a fun, interactive cat adoption website inspired by popular matchmaking applications. 
-                It matches users to their perfect feline companion based on zodiac sign compatibility. 
-                </h2>
-                <h1 className='text-center text-5xl semi-bold font-mono tracking-tighter'>The best search tool for meows in your area</h1>
-            <input 
-                type="text" 
-                value={zodiacSign} 
-                onChange={(e) => setZodiacSign(e.target.value)} 
+            <h2 className='text-3xl font-semibold m-4 mr-10 ml-10 text-left whitespace-break-spaces'>Right Meow is a fun, interactive cat adoption website inspired by popular matchmaking applications.
+                It matches users to their perfect feline companion based on zodiac sign compatibility.
+            </h2>
+            <h1 className='text-center text-5xl semi-bold font-mono tracking-tighter'>The best search tool for meows in your area</h1>
+            <input
+                className="p-2 m-10 border border-gray-300 rounded text-center h-full w-1/5" // Styled input
+                type="text"
+                value={zodiacSign}
+                onChange={(e) => setZodiacSign(e.target.value)}
                 placeholder="Enter your zodiac sign"
-                className="p-2 m-10 border border-gray-300 rounded text-center w-64 sm:w-80 lg:w-96" // Styled input
             />
             <CatList zodiacSign={zodiacSign} />
+
+            {/* Moving cat image in the top left corner */}
+            <img
+                src={catImage}
+                alt="Cat"
+                className="moving-cat"
+                style={{ top: `${position.top}px`, left: `${position.left}px`, position: 'absolute', width: '100px', transition: 'top 1s linear, left 1s linear' }}
+            />
         </div>
     );
 }
