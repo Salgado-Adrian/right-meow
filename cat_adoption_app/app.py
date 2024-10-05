@@ -1,16 +1,20 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import mysql.connector
+from dotenv import load_dotenv
+import os
+
+#Load environment variables from .evn files
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
 # Database connection configuration
 db_config = {
-    'host': 'localhost',
-    'user': 'root',    # replace with your MySQL username
-    'password': 'Sakura43!', # replace with your MySQL password
-    'database': 'celebrity_cats_db'
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),    
+    'password': os.getenv('DB_PASSWORD'),
 }
 
 # Function to create a database connection
