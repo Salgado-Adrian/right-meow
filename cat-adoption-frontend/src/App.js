@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CatList from './CatList';
-import catImage from './assets/thugcat.png'; // Make sure to have your cat image in the correct location
+import catImage from './assets/thugcat.png';
 import './App.css';
 
 function App() {
@@ -27,15 +27,29 @@ function App() {
                 It matches users to their perfect feline companion based on zodiac sign compatibility.
             </h2>
             <h1 className='text-center text-5xl semi-bold font-mono tracking-tighter'>The best search tool for meows in your area</h1>
+        
+        <form
+            className = "flex flex-col justify-center items-center m-10"
+            onSubmit={(e) => {
+                e.preventDefault();
+                // Handle the search action here
+                setZodiacSign(e.target.elements.zodiacSign.value);
+            }}
+    >     
             <input
-                className="p-2 m-10 border border-gray-300 rounded text-center h-full w-1/5" // Styled input
+                className="p-2 mb-4 border border-gray-300 rounded text-center h-full w-5/5" // Styled input
                 type="text"
-                value={zodiacSign}
-                onChange={(e) => setZodiacSign(e.target.value)}
+                name="zodiacSign"
                 placeholder="Enter your zodiac sign"
             />
-            <CatList zodiacSign={zodiacSign} />
-
+            <button
+                className="p-2 ml-2 bg-blue-800 text-white rounded hover: bg-violet-800"
+                type="submit"
+            >
+                Search
+            </button>
+        </form>
+        {zodiacSign && <CatList zodiacSign={zodiacSign} />}
             {/* Moving cat image in the top left corner */}
             <img
                 src={catImage}
