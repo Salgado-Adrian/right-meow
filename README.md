@@ -6,12 +6,12 @@ Open MySQL Workbench or use the command line.
 Execute the following SQL command to create a database (replace celebrity_cats_db with your desired database name):
 
 sql
-Copy code
+
 CREATE DATABASE celebrity_cats_db;
 Create a Table: Create a table for the cats with the following SQL command:
 
 sql
-Copy code
+
 USE celebrity_cats_db;
 
 CREATE TABLE cats (
