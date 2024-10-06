@@ -1,78 +1,27 @@
-Create a Database
-After installing MySQL and starting the server, you can create a database where you will store your celebrity cat data.
+## Inspiration
 
-Open MySQL Workbench or use the command line.
+We are all fans of cats and were joking about how they each have different personalities, similar to how zodiac signs are believed to be. We decided to mix these two ideas and come up with a cat adopter where the cats are celebrities!
 
-Execute the following SQL command to create a database (replace celebrity_cats_db with your desired database name):
+## What it does
 
-sql
+This app shows compatability between your indicated zodiac sign and celebrity cats! You can see compatability scores from greatest least and choose to adopt if you want.
 
-CREATE DATABASE celebrity_cats_db;
-Create a Table: Create a table for the cats with the following SQL command:
+## How we built it
 
-sql
+This was built using React for the front end and Flask for the back end. Additionally, we implemented a mySQL databse to store our information needed and fetched the information using API requests.
 
-USE celebrity_cats_db;
+## Challenges we ran into
 
-CREATE TABLE cats (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    zodiac_sign VARCHAR(50) NOT NULL
-);
-Insert Sample Data: Insert your celebrity cat data into the cats table:
+This was our first hackathon for all of us so we had problems collaborating together using Git and gitHub. Additionally, this was also our first time using mySQL as a database. We were at first using a list of dictionaries in Python to store our information, but we had decided to try out a databse for the first time to see how they work. 
 
-sql
-Copy code
-INSERT INTO cats (name, zodiac_sign) VALUES
-("Taylor Swift", "Pisces"),
-("Drake", "Scorpio"),
-("Beyoncé", "Leo"),
-("Katy Perry", "Gemini"),
-("Kanye West", "Libra"),
-("Ariana Grande", "Cancer"),
-("Bruno Mars", "Aries"),
-("Billie Eilish", "Aquarius"),
-("Justin Bieber", "Sagittarius"),
-("Selena Gomez", "Taurus"),
-("Rihanna", "Pisces"),
-("Ed Sheeran", "Libra"),
-("Lady Gaga", "Aries"),
-("Post Malone", "Cancer"),
-("Shawn Mendes", "Gemini"),
-("Demi Lovato", "Aquarius"),
-("Camila Cabello", "Leo"),
-("Miley Cyrus", "Sagittarius"),
-("Cardi B", "Libra"),
-("Halsey", "Capricorn"),
-("Snoop Dogg", "Libra"),
-("Kendrick Lamar", "Taurus"),
-("J Cole", "Virgo"),
-("Travis Scott", "Aquarius"),
-("Lizzo", "Scorpio"),
-("Bebe Rexha", "Taurus"),
-("Megan Thee Stallion", "Aquarius"),
-("Lil Nas X", "Leo"),
-("Olivia Rodrigo", "Leo"),
-("Zayn Malik", "Aquarius"),
-("Billie Eilish", "Aquarius"),
-("John Legend", "Capricorn"),
-("Adele", "Taurus"),
-("The Weeknd", "Aquarius"),
-("Harry Styles", "Aquarius"),
-("Kylie Jenner", "Leo"),
-("Kim Kardashian", "Libra"),
-("Katy Perry", "Gemini"),
-("Dwayne Johnson", "Taurus"),
-("Chris Hemsworth", "Leo"),
-("Natalie Portman", "Gemini"),
-("Emma Watson", "Aries"),
-("Leonardo DiCaprio", "Scorpio"),
-("Scarlett Johansson", "Sagittarius"),
-("Tom Hanks", "Libra"),
-("Will Smith", "Libra"),
-("Jennifer Lawrence", "Leo"),
-("Ryan Reynolds", "Scorpio"),
-("Emma Stone", "Sagittarius"),
-("Gal Gadot", "Gemini");
+## Accomplishments that we're proud of
 
-By following these steps, you should have MySQL installed and set up with a database ready for use in your Flask application. If you need further assistance with any of these steps, feel free to ask!
+We are proud of how we were able to link the frontend to the backend after much trial and error. We were able to figure out how API requests work and utilize them correctly.
+
+## What we learned
+
+We learned how important the structure of a project can be as well as many other technical things such as frameworks interacting with eachother.
+
+## What's next for Right Meow
+
+We would like to better our use of mySQL and modularize our frontend better.
