@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-amber-600 to-brown-900 relative overflow-hidden"
+      className="flex flex-col items-center justify-center min-h-screen bg-amber-600 relative overflow-hidden"
       onMouseMove={handleMouseMove} // Capture the mouse move event
     >
       {/* Title Section */}
@@ -68,8 +68,8 @@ function App() {
             <option key={sign} value={sign}>{sign}</option>
           ))}
         </select>
-        <button className="p-2 mb-16 bg-blue-800 text-white rounded hover:bg-violet-800 transition-all">
-          Search
+        <button className="p-2 mb-16 bg-amber-700 text-white rounded hover:bg-violet-800 transition-all">
+          Search :3
         </button>
       </form>
 
